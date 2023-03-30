@@ -1,23 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
+import  Button  from './Button';
+import { useState } from 'react';
+import Tasks from './Tasks';
 
 function App() {
+  const [tasks, setTask]=useState([
+    {
+      id:1,
+    tname: 'A',
+    trem: true
+    },
+    {
+      id:2,
+      tname: 'B',
+      trem: true
+    },
+    {
+      id:3,
+      tname: 'Chjjij',
+      trem: false
+    }
+
+  ])
+  const setReminder = (id) =>{
+    setTask(tasks.map((task) => task.id === id?{...tasks, trem:!task.trem}:task))
+  }
+  const onDelete = (id)=>{
+    setTask(tasks.filter((task) => (task.id !== id)))
+
+  }
+  const addTask = () =>{
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="mainContainer">
+    
+        <h1>Task Keeper</h1>
+     
+        <Tasks tasks={tasks} onClick={onDelete} onReminder={setReminder}></Tasks>
+       <Button color='blue' text="Add Task"></Button>
+
+      
     </div>
   );
 }

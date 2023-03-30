@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.mainContainer{
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border:1px solid rgb(0, 0, 0);
+  padding: 30px;
+  border-radius: 5px;
+  background-color: rgb(83, 141, 86);
+}
+.event {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+cursor: pointer;
+}
+.event.reminder {
+  border-left: 5px solid green;
+}
